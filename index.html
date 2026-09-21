@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>example</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-scene="intro">
+
+  <!-- Background layers (crossfade between the two scenes) -->
+  <div class="bg bg-intro"></div>
+  <div class="bg bg-bouquet"></div>
+
+  <!-- Random sparkles, shared between both scenes -->
+  <div id="sparkles" aria-hidden="true"></div>
+
+  <!-- ===================== SCENE 1 ===================== -->
+  <main id="scene-intro" class="scene active">
+    <div class="intro-content">
+      <p class="intro-text">example</p>
+      <button id="continue-btn" class="continue-btn" type="button">
+        <span>Tocar para continuar</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- ===================== SCENE 2 ===================== -->
+  <main id="scene-bouquet" class="scene">
+    <div class="bouquet-stage" id="bouquet-stage">
+
+      <!-- ---------- BOUQUET ---------- -->
+      <div class="bouquet-wrap" id="bouquet-wrap">
+        <svg id="bouquet-svg" viewBox="0 0 500 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ramo de flores amarillas">
+          <defs>
+
+            <!-- Leaf -->
+            <g id="leaf">
+              <path d="M0,0 C12,-28 14,-58 0,-92 C-14,-58 -12,-28 0,0 Z"/>
+              <path d="M0,-8 C2,-30 2,-55 0,-80" class="leaf-vein"/>
+            </g>
+
+            <!-- Small yellow filler sprig (mimosa-like) -->
+            <g id="sprig">
+              <path d="M0,0 C4,-10 10,-16 18,-22" class="sprig-stem"/>
+              <circle cx="18" cy="-22" r="3.4"/>
+              <circle cx="11" cy="-16" r="2.8"/>
+              <circle cx="24" cy="-16" r="2.8"/>
+              <circle cx="16" cy="-9" r="2.4"/>
+              <circle cx="27" cy="-25" r="2.4"/>
+            </g>
+
+            <!-- Lily : 6 pointed petals, star-shaped, high presence -->
+            <g id="lily">
+              <g class="lily-petals">
+                <path d="M0,0 C-9,-24 -6,-58 0,-78 C6,-58 9,-24 0,0 Z" transform="rotate(0)"/>
+                <path d="M0,0 C-9,-24 -6,-58 0,-78 C6,-58 9,-24 0,0 Z" transform="rotate(60)"/>
+                <path d="M0,0 C-9,-24 -6,-58 0,-78 C6,-58 9,-24 0,0 Z" transform="rotate(120)"/>
+                <path d="M0,0 C-9,-24 -6,-58 0,-78 C6,-58 9,-24 0,0 Z" transform="rotate(180)"/>
+                <path d="M0,0 C-9,-24 -6,-58 0,-78 C6,-58 9,-24 0,0 Z" transform="rotate(240)"/>
+                <path d="M0,0 C-9,-24 -6,-58 0,-78 C6,-58 9,-24 0,0 Z" transform="rotate(300)"/>
+              </g>
+              <g class="lily-freckles">
+                <circle cx="-2" cy="-14" r="1.1"/>
+                <circle cx="2" cy="-19" r="1"/>
+                <circle cx="-1" cy="-24" r="1"/>
+                <circle cx="3" cy="-11" r="0.9"/>
+              </g>
+              <circle r="5" class="lily-center"/>
+              <g class="lily-stamens">
+                <line x1="0" y1="0" x2="10" y2="-26"/>
+                <line x1="0" y1="0" x2="-10" y2="-26"/>
+                <line x1="0" y1="0" x2="3" y2="-30"/>
+                <line x1="0" y1="0" x2="-4" y2="-29"/>
+                <circle cx="10" cy="-26" r="1.6"/>
+                <circle cx="-10" cy="-26" r="1.6"/>
+                <circle cx="3" cy="-30" r="1.6"/>
+                <circle cx="-4" cy="-29" r="1.6"/>
+              </g>
+            </g>
+
+            <!-- Dahlia : layered pointed petals -->
+            <g id="dahlia">
+              <g class="dahlia-outer">
+                <path d="M0,0 L-9,-38 L0,-48 L9,-38 Z" transform="rotate(0)"/>
+                <path d="M0,0 L-9,-38 L0,-48 L9,-38 Z" transform="rotate(45)"/>
+                <path d="M0,0 L-9,-38 L0,-48 L9,-38 Z" transform="rotate(90)"/>
+                <path d="M0,0 L-9,-38 L0,-48 L9,-38 Z" transform="rotate(135)"/>
+                <path d="M0,0 L-9,-38 L0,-48 L9,-38 Z" transform="rotate(180)"/>
+                <path d="M0,0 L-9,-38 L0,-48 L9,-38 Z" transform="rotate(225)"/>
+                <path d="M0,0 L-9,-38 L0,-48 L9,-38 Z" transform="rotate(270)"/>
+                <path d="M0,0 L-9,-38 L0,-48 L9,-38 Z" transform="rotate(315)"/>
+              </g>
+              <g class="dahlia-inner">
+                <path d="M0,0 L-6,-24 L0,-31 L6,-24 Z" transform="rotate(22.5)"/>
+                <path d="M0,0 L-6,-24 L0,-31 L6,-24 Z" transform="rotate(67.5)"/>
+                <path d="M0,0 L-6,-24 L0,-31 L6,-24 Z" transform="rotate(112.5)"/>
+                <path d="M0,0 L-6,-24 L0,-31 L6,-24 Z" transform="rotate(157.5)"/>
+                <path d="M0,0 L-6,-24 L0,-31 L6,-24 Z" transform="rotate(202.5)"/>
+                <path d="M0,0 L-6,-24 L0,-31 L6,-24 Z" transform="rotate(247.5)"/>
+                <path d="M0,0 L-6,-24 L0,-31 L6,-24 Z" transform="rotate(292.5)"/>
+                <path d="M0,0 L-6,-24 L0,-31 L6,-24 Z" transform="rotate(337.5)"/>
+              </g>
+              <circle r="6" class="dahlia-center"/>
+            </g>
+
+            <!-- Peony : fluffy overlapping rounded petals -->
+            <g id="peony">
+              <ellipse cx="0" cy="-12" rx="20" ry="17" class="peony-back"/>
+              <ellipse cx="-17" cy="-4" rx="15" ry="13" class="peony-mid"/>
+              <ellipse cx="17" cy="-4" rx="15" ry="13" class="peony-mid"/>
+              <ellipse cx="-11" cy="9" rx="14" ry="12" class="peony-front"/>
+              <ellipse cx="11" cy="9" rx="14" ry="12" class="peony-front"/>
+              <ellipse cx="0" cy="13" rx="15" ry="12" class="peony-front"/>
+              <ellipse cx="-22" cy="10" rx="10" ry="9" class="peony-back"/>
+              <ellipse cx="0" cy="-6" rx="12" ry="10" class="peony-highlight"/>
+              <g class="peony-center">
+                <circle cx="-2" cy="1" r="1.6"/>
+                <circle cx="3" cy="-2" r="1.6"/>
+                <circle cx="0" cy="4" r="1.6"/>
+                <circle cx="4" cy="3" r="1.4"/>
+              </g>
+            </g>
+
+            <!-- Daisy : small cream accent flower -->
+            <g id="daisy">
+              <g class="daisy-petals">
+                <ellipse cx="0" cy="-9" rx="3" ry="9" transform="rotate(0)"/>
+                <ellipse cx="0" cy="-9" rx="3" ry="9" transform="rotate(45)"/>
+                <ellipse cx="0" cy="-9" rx="3" ry="9" transform="rotate(90)"/>
+                <ellipse cx="0" cy="-9" rx="3" ry="9" transform="rotate(135)"/>
+                <ellipse cx="0" cy="-9" rx="3" ry="9" transform="rotate(180)"/>
+                <ellipse cx="0" cy="-9" rx="3" ry="9" transform="rotate(225)"/>
+                <ellipse cx="0" cy="-9" rx="3" ry="9" transform="rotate(270)"/>
+                <ellipse cx="0" cy="-9" rx="3" ry="9" transform="rotate(315)"/>
+              </g>
+              <circle r="4.5" class="daisy-center"/>
+            </g>
+
+          </defs>
+
+          <!-- ===== PAPER WRAP ===== -->
+          <g id="paper-wrap">
+            <path d="M160,300 L78,560 L235,610 L258,308 Z" class="wrap-back-left"/>
+            <path d="M338,300 L420,540 L268,610 L258,308 Z" class="wrap-back-right"/>
+            <path d="M205,318 L150,585 L305,598 L345,330 Z" class="wrap-front"/>
+            <path d="M240,320 L215,560 L270,565 L285,325 Z" class="wrap-fold-highlight"/>
+          </g>
+
+          <!-- ===== BOW ===== -->
+          <g id="bow" transform="translate(258,478)">
+            <path d="M0,0 C-45,-30 -85,-15 -95,10 C-100,32 -70,42 -40,28 C-55,20 -60,5 -40,-4 C-25,-10 -8,-6 0,0 Z" class="bow-loop"/>
+            <path d="M0,0 C45,-30 85,-15 95,10 C100,32 70,42 40,28 C55,20 60,5 40,-4 C25,-10 8,-6 0,0 Z" class="bow-loop"/>
+            <path d="M-10,4 C-40,60 -55,110 -48,150 L-14,140 C-16,100 -8,55 6,10 Z" class="bow-tail"/>
+            <path d="M10,4 C34,50 38,90 30,120 L2,112 C4,80 -2,50 -6,10 Z" class="bow-tail-front"/>
+            <ellipse cx="0" cy="2" rx="16" ry="12" class="bow-knot"/>
+          </g>
+
+          <!-- ===== FLOWER CLUSTER (this whole group gently sways) ===== -->
+          <g id="cluster" class="bouquet-sway">
+
+            <!-- back greenery -->
+            <g class="leaf-sway leaf-sway-a">
+              <use href="#leaf" transform="translate(150,300) rotate(-35)" class="leaf-dark"/>
+              <use href="#leaf" transform="translate(355,300) rotate(35)" class="leaf-dark"/>
+              <use href="#leaf" transform="translate(252,300) rotate(2) scale(1.2)" class="leaf-mid"/>
+            </g>
+
+            <!-- peonies (back layer) -->
+            <use href="#peony" transform="translate(185,255) rotate(-6) scale(1.05)"/>
+            <use href="#peony" transform="translate(322,250) rotate(5) scale(1.05)"/>
+            <use href="#peony" transform="translate(150,205) rotate(-8) scale(0.9)"/>
+            <use href="#peony" transform="translate(350,195) rotate(8) scale(0.92)"/>
+
+            <!-- dahlias -->
+            <use href="#dahlia" transform="translate(145,235) rotate(-4)"/>
+            <use href="#dahlia" transform="translate(358,225) rotate(6)"/>
+            <use href="#dahlia" transform="translate(252,195) scale(1.05)"/>
+
+            <!-- daisies -->
+            <use href="#daisy" transform="translate(235,118) scale(0.85)"/>
+            <use href="#daisy" transform="translate(378,268) scale(0.75)"/>
+            <use href="#daisy" transform="translate(122,278) scale(0.75)"/>
+
+            <!-- middle greenery -->
+            <g class="leaf-sway leaf-sway-b">
+              <use href="#leaf" transform="translate(115,255) rotate(-55) scale(0.9)" class="leaf-mid"/>
+              <use href="#leaf" transform="translate(392,245) rotate(55) scale(0.9)" class="leaf-mid"/>
+              <use href="#leaf" transform="translate(200,150) rotate(-18) scale(0.85)" class="leaf-light"/>
+              <use href="#leaf" transform="translate(310,140) rotate(18) scale(0.85)" class="leaf-light"/>
+            </g>
+
+            <!-- LILIES : the stars of the bouquet, extra presence -->
+            <g class="leaf-sway leaf-sway-c">
+              <use href="#lily" transform="translate(188,150) rotate(-14) scale(1.35)"/>
+              <use href="#lily" transform="translate(322,142) rotate(12) scale(1.3)"/>
+              <use href="#lily" transform="translate(253,88) rotate(-2) scale(1.5)"/>
+            </g>
+
+            <!-- small filler sprigs for texture -->
+            <use href="#sprig" transform="translate(96,230) rotate(-10)"/>
+            <use href="#sprig" transform="translate(405,215) rotate(200) scale(-1,1)"/>
+            <use href="#sprig" transform="translate(160,120) rotate(-25)"/>
+            <use href="#sprig" transform="translate(360,290) rotate(15)"/>
+
+          </g>
+
+        </svg>
+      </div>
+
+      <!-- ---------- CARD / ENVELOPE ---------- -->
+      <button id="envelope-btn" class="envelope-btn" type="button" aria-label="Abrir la carta">
+        <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="76" height="56" rx="4" class="envelope-body"/>
+          <path d="M4,6 L40,36 L76,6" class="envelope-flap"/>
+        </svg>
+        <span class="envelope-label">example</span>
+      </button>
+
+      <!-- ---------- LETTER PAPER ---------- -->
+      <aside id="letter" class="letter" aria-hidden="true">
+        <div class="letter-paper">
+          <p class="letter-text">example</p>
+          <p class="letter-signature">example</p>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
