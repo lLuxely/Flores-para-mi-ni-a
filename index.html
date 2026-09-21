@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flores amarillas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-scene="intro">
+
+  <!-- Capas de fondo general de la página -->
+  <div class="bg bg-intro"></div>
+  <div class="bg bg-bouquet"></div>
+
+  <!-- Destellos compartidos -->
+  <div id="sparkles" aria-hidden="true"></div>
+
+  <!-- ===================== ESCENA 1 ===================== -->
+  <main id="scene-intro" class="scene active">
+    <div class="intro-content">
+      <p class="intro-text">Flores para mi niña de ojos lindos</p>
+      <button id="continue-btn" class="continue-btn" type="button">
+        <span>Tocar para continuar</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- ===================== ESCENA 2 ===================== -->
+  <main id="scene-bouquet" class="scene">
+    <div class="bouquet-stage" id="bouquet-stage">
+
+      <!-- ---------- RAMO DE FLORES ---------- -->
+      <div class="bouquet-wrap" id="bouquet-wrap">
+        <svg id="bouquet-svg" viewBox="0 0 520 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ramo de flores amarillas">
+          <defs>
+            <!-- Hoja alargada -->
+            <g id="leaf">
+              <path d="M0,0 C14,-32 16,-66 0,-102 C-16,-66 -14,-32 0,0 Z"/>
+              <path d="M0,-10 C2,-35 2,-62 0,-90" class="leaf-vein"/>
+            </g>
+
+            <!-- Flor tipo Lirio detallada -->
+            <g id="lily">
+              <g class="lily-petals">
+                <path d="M0,0 C-11,-28 -8,-66 0,-88 C8,-66 11,-28 0,0 Z" transform="rotate(0)"/>
+                <path d="M0,0 C-11,-28 -8,-66 0,-88 C8,-66 11,-28 0,0 Z" transform="rotate(45)"/>
+                <path d="M0,0 C-11,-28 -8,-66 0,-88 C8,-66 11,-28 0,0 Z" transform="rotate(90)"/>
+                <path d="M0,0 C-11,-28 -8,-66 0,-88 C8,-66 11,-28 0,0 Z" transform="rotate(135)"/>
+                <path d="M0,0 C-11,-28 -8,-66 0,-88 C8,-66 11,-28 0,0 Z" transform="rotate(180)"/>
+                <path d="M0,0 C-11,-28 -8,-66 0,-88 C8,-66 11,-28 0,0 Z" transform="rotate(225)"/>
+                <path d="M0,0 C-11,-28 -8,-66 0,-88 C8,-66 11,-28 0,0 Z" transform="rotate(270)"/>
+                <path d="M0,0 C-11,-28 -8,-66 0,-88 C8,-66 11,-28 0,0 Z" transform="rotate(315)"/>
+              </g>
+              <circle r="7" class="lily-center"/>
+            </g>
+
+            <!-- Rosa orgánica -->
+            <g id="rose">
+              <circle cx="0" cy="0" r="22" class="rose-back"/>
+              <path d="M-10,-10 C-5,-20 10,-15 5,0 C0,15 -15,10 -10,-10 Z" class="rose-petal"/>
+              <path d="M5,-5 C12,-15 20,-5 10,5 C0,15 -5,5 5,-5 Z" class="rose-petal-2"/>
+              <circle cx="0" cy="0" r="6" class="rose-center"/>
+            </g>
+
+            <!-- Pequeño brote auxiliar -->
+            <g id="sprig">
+              <path d="M0,0 C5,-12 12,-20 22,-28" class="sprig-stem"/>
+              <circle cx="22" cy="-28" r="3.5"/>
+              <circle cx="13" cy="-20" r="3"/>
+              <circle cx="29" cy="-20" r="3"/>
+            </g>
+          </defs>
+
+          <!-- GRUPO COMPLETO DEL RAMO -->
+          <g id="complete-bouquet">
+            <!-- 1. Papel trasero -->
+            <g id="paper-wrap-back">
+              <path d="M170,280 L100,580 L250,640 L260,310 Z" class="wrap-back-left"/>
+              <path d="M350,280 L420,560 L270,640 L260,310 Z" class="wrap-back-right"/>
+            </g>
+
+            <!-- 2. Clúster de flores -->
+            <g id="cluster" class="bouquet-sway">
+              <g class="leaf-sway leaf-sway-a">
+                <use href="#leaf" transform="translate(140,280) rotate(-45)" class="leaf-dark"/>
+                <use href="#leaf" transform="translate(380,270) rotate(45)" class="leaf-dark"/>
+                <use href="#leaf" transform="translate(260,290) rotate(0) scale(1.3)" class="leaf-mid"/>
+                <use href="#leaf" transform="translate(190,300) rotate(-25)" class="leaf-light"/>
+                <use href="#leaf" transform="translate(330,290) rotate(25)" class="leaf-light"/>
+              </g>
+
+              <use href="#rose" transform="translate(205,240) scale(1.15)"/>
+              <use href="#rose" transform="translate(315,235) rotate(15) scale(1.1)"/>
+              <use href="#rose" transform="translate(260,205) rotate(-10) scale(1.25)"/>
+              <use href="#rose" transform="translate(170,200) rotate(-20) scale(1.0)"/>
+              <use href="#rose" transform="translate(350,190) rotate(20) scale(1.05)"/>
+              <use href="#rose" transform="translate(225,165) scale(1.1)"/>
+              <use href="#rose" transform="translate(295,160) scale(1.05)"/>
+
+              <g class="leaf-sway leaf-sway-c">
+                <use href="#lily" transform="translate(260,115) rotate(-5) scale(1.45)"/>
+                <use href="#lily" transform="translate(190,135) rotate(-20) scale(1.35)"/>
+                <use href="#lily" transform="translate(330,125) rotate(18) scale(1.35)"/>
+                <use href="#lily" transform="translate(225,90) rotate(10) scale(1.25)"/>
+                <use href="#lily" transform="translate(295,95) rotate(-15) scale(1.2)"/>
+                <use href="#lily" transform="translate(150,160) rotate(-35) scale(1.15)"/>
+                <use href="#lily" transform="translate(370,150) rotate(35) scale(1.15)"/>
+                <use href="#lily" transform="translate(260,55) rotate(2) scale(1.3)"/>
+              </g>
+
+              <use href="#sprig" transform="translate(120,220) rotate(-15) scale(1.2)"/>
+              <use href="#sprig" transform="translate(400,210) rotate(195) scale(-1.2,1.2)"/>
+              <use href="#sprig" transform="translate(160,90) rotate(-30) scale(1.1)"/>
+              <use href="#sprig" transform="translate(360,85) rotate(30) scale(1.1)"/>
+              <use href="#sprig" transform="translate(235,40) rotate(-5)"/>
+              <use href="#sprig" transform="translate(285,40) rotate(5)"/>
+            </g>
+
+            <!-- 3. Papel frontal -->
+            <g id="paper-wrap-front">
+              <path d="M210,285 L150,610 L315,625 L330,295 Z" class="wrap-front"/>
+              <path d="M245,290 L230,585 L285,595 L290,300 Z" class="wrap-fold-highlight"/>
+            </g>
+
+            <!-- 4. Lazo -->
+            <g id="bow" transform="translate(370, 510) rotate(15)">
+              <path d="M0,0 C-40,-25 -75,-12 -85,8 C-90,26 -65,36 -35,24 C-48,17 -52,4 -35,-3 C-22,-8 -7,-5 0,0 Z" class="bow-loop"/>
+              <path d="M0,0 C40,-25 75,-12 85,8 C90,26 65,36 35,24 C48,17 52,4 35,-3 C22,-8 7,-5 0,0 Z" class="bow-loop"/>
+              <path d="M-8,3 C-30,45 -45,85 -38,115 L-10,105 C-12,75 -6,40 4,8 Z" class="bow-tail"/>
+              <path d="M8,3 C25,40 30,75 22,100 L0,92 C2,65 -2,40 -4,8 Z" class="bow-tail-front"/>
+              <ellipse cx="0" cy="1" rx="14" ry="10" class="bow-knot"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <!-- ---------- SOBRE / CARTA (Con rebote) ---------- -->
+      <button id="envelope-btn" class="envelope-btn bounce-element" type="button" aria-label="Abrir la carta">
+        <svg viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="76" height="56" rx="4" class="envelope-body"/>
+          <path d="M4,6 L40,36 L76,6" class="envelope-flap"/>
+        </svg>
+        <span class="envelope-label">Abremeee</span>
+      </button>
+
+      <!-- ---------- PAPEL DE LA CARTA ---------- -->
+      <aside id="letter" class="letter" aria-hidden="true">
+        <div class="letter-paper">
+          <p class="letter-text">¡Eres lo más bonito que me ha pasado, te amo muchísimo! ❤️</p>
+          <p class="letter-signature">- Luis</p>  
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
